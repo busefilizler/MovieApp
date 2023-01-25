@@ -1,7 +1,9 @@
 <template>
   <div class="w-screen h-screen bg-stone-800">
     <HeaderPart class="absolute h-full w-full z-30" />
-    <router-view />
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -18,9 +20,11 @@ export default {
 </script>
 <style>
 body {
+  background: #292524;
   height: 100%;
 }
 #app {
   height: 100%;
+  background: #292524;
 }
 </style>

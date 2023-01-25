@@ -8,7 +8,7 @@
         class="w-full absolute object-cover h-full opacity-30 mask"
       />
       <div class="w-full h-full">
-        <Transition name="bounce">
+        <Transition name="slide">
           <div
             v-if="showDiv"
             class="DETATILS flex flex-row-reverse absolute h-full pt-10"
@@ -110,26 +110,4 @@ export default {
   },
 };
 </script>
-<style>
-.bounce-enter-active {
-  animation: bounce-in 2s;
-}
-.bounce-leave-active {
-  animation: bounce-in 1s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.mask {
-  -webkit-mask-image: linear-gradient(black, transparent);
-  mask-image: linear-gradient(black, transparent);
-}
-</style>
+<style></style>
