@@ -1,8 +1,8 @@
 import { API_KEY, BASE_URL } from "./baseURL";
 import { responseHandler } from "./responseHandler";
 
-const fetchPopularMovies = async () => {
-  const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}`;
+const fetchPopularMovies = async (page) => {
+  const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${page}`;
   const response = await fetch(url);
   return await responseHandler(response);
 };

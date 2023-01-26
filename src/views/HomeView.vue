@@ -43,7 +43,7 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 bg-stone-800"
+          class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
         >
           <MovieCard
             v-for="(movie, index) in movies"
@@ -53,6 +53,26 @@
           />
         </div>
       </transition>
+      <hr class="border-1 border-opacity-25 border-white w-full mb-5" />
+      <div
+        class="flex flex-row justify-center items-center content-center gap-4"
+      >
+        <button
+          @click="currentPage--"
+          v-if="currentPage > 1"
+          class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mb-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
+        >
+          Back
+        </button>
+        <p class="text-white p-2 px-10 mb-11">-{{ currentPage }}-</p>
+        <button
+          @click="currentPage++"
+          v-if="currentPage < 42"
+          class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mb-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
+        >
+          Next
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -70,12 +90,13 @@ export default {
       movies: [],
       i: 0,
       link: "",
+      totalPages: null,
+      currentPage: 1,
     };
   },
   async mounted() {
-    const data = await movieService.fetchPopularMovies();
+    const data = await movieService.fetchPopularMovies(1);
     this.movies = data.results;
-    // console.log(this.movies);
   },
   computed: {
     posterPath() {
@@ -97,6 +118,14 @@ export default {
       this.link = `https://www.youtube.com/watch?v=${key}`;
       console.log(this.link);
       window.open(this.link);
+    },
+  },
+  watch: {
+    async currentPage(newcurrentPage) {
+      const data = await movieService.fetchPopularMovies(`${newcurrentPage}`);
+      console.log(data);
+      this.movies = data.results;
+      this.totalPages = data.page;
     },
   },
 };
