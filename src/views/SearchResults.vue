@@ -4,42 +4,7 @@
     <div
       class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 bg-stone-800"
     >
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
-      <MovieCard class="z-40 cursor-pointer" />
+      <MovieCard class="cursor-pointer" />
     </div>
   </div>
 </template>

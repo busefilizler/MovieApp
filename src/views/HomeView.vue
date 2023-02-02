@@ -19,7 +19,7 @@
               {{ movies[i].overview }}
             </p>
             <button
-              class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mt-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white z-50"
+              class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mt-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
               @click="watchTrailer"
             >
               Watch Trailer
@@ -31,7 +31,7 @@
           >
             <img
               :src="posterPath"
-              class="w-2/4 rounded-xl shadow-2xl cursor-pointer z-50"
+              class="w-2/4 rounded-xl shadow-2xl cursor-pointer"
             />
           </div>
         </div>
@@ -45,11 +45,11 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="z-50 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
+          class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
         >
           <MovieCard
-            v-for="(movie, index) in movies"
-            :key="index"
+            v-for="movie in movies"
+            :key="movie.id"
             :movie="movie"
             class="cursor-pointer flex flex-col justify-start items-center"
           />
@@ -61,7 +61,7 @@
       >
         <button
           @click="currentPage--"
-          v-if="currentPage > 1"
+          :disabled="currentPage <= 1"
           class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mb-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
         >
           Back
@@ -99,6 +99,7 @@ export default {
   async mounted() {
     const data = await movieService.fetchPopularMovies(1);
     this.movies = data.results;
+    console.log(this.movies);
   },
   computed: {
     posterPath() {

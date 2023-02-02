@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen h-screen bg-stone-800">
-    <HeaderPart class="absolute h-full w-full z-30" />
+    <HeaderPart class="absolute w-full z-10" />
     <transition name="fade">
       <router-view />
     </transition>

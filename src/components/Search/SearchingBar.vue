@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-24 pb-10 z-40">
+  <div class="pt-24 pb-10">
     <transition name="slide" appear>
       <form class="flex justify-center items-center">
         <div class="relative w-full">
@@ -21,7 +21,7 @@
           <input
             type="text"
             id="simple-search"
-            class="bg-stone-300 md:w-96 sm:w-52 text-black text-sm rounded-lg block pl-10 p-2.5 outline-0 shadow-2xl z-30"
+            class="bg-stone-300 md:w-96 sm:w-52 text-black text-sm rounded-lg block pl-10 p-2.5 outline-0 shadow-2xl"
             placeholder="Search"
             required
           />

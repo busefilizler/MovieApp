@@ -6,9 +6,11 @@
         class="flex justify-between bg-black bg-opacity-20 text-white w-screen"
       >
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-          <a class="md:text-5xl sm:text-4xl font-black font-heading" href="#">
-            MovieApp
-          </a>
+          <router-link tag="a" to="/" exact>
+            <a class="md:text-5xl sm:text-4xl font-black font-heading" href="#">
+              MovieApp
+            </a>
+          </router-link>
           <!-- Nav Links START -->
           <ul
             class="hidden sm:text-sm md:text-2xl sm:flex ml-20 px-4 mx-auto font-semibold font-heading gap-10"
