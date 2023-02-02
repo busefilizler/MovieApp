@@ -8,9 +8,11 @@
         class="w-full absolute object-cover h-full opacity-30 mask"
       />
       <transition name="slide" appear>
-        <div class="flex flex-row pl-10 absolute h-full">
+        <div
+          class="flex justify-between items-center flex-row pl-10 absolute h-full"
+        >
           <div
-            class="w-1/2 flex flex-col items-start justify-center ml-24 text-white"
+            class="w-1/2 flex flex-col lg:justify-center lg:items-start items-center ml-24 text-white"
           >
             <h1 class="text-6xl font-extrabold pb-4">{{ movies[i].title }}</h1>
             <p class="md:text-lg sm:text-base">
@@ -25,7 +27,7 @@
           </div>
           <div
             @click="counter"
-            class="w-1/2 hidden lg:flex items-center justify-center mx-24"
+            class="lg:w-1/2 w-full hidden lg:flex items-center justify-center mx-24"
           >
             <img
               :src="posterPath"
@@ -43,13 +45,13 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
+          class="z-50 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
         >
           <MovieCard
             v-for="(movie, index) in movies"
             :key="index"
             :movie="movie"
-            class="z-40 cursor-pointer flex flex-col justify-start items-center"
+            class="cursor-pointer flex flex-col justify-start items-center"
           />
         </div>
       </transition>
@@ -116,7 +118,6 @@ export default {
       );
       const key = results[0].key;
       this.link = `https://www.youtube.com/watch?v=${key}`;
-      console.log(this.link);
       window.open(this.link);
     },
   },
