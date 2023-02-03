@@ -59,7 +59,7 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-12 bg-stone-800"
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800"
         >
           <MovieCard
             v-for="movie in movies"
