@@ -1,12 +1,27 @@
 <template>
-  <div>
-    <div class="flex flex-col justify-center items-center hover:opacity-30 m-3">
-      <img src="../../assets/joker.jpg" class="w-52 rounded-lg" />
-      <span class="text-white text-xl pt-1">Joker</span>
-    </div>
+  <div
+    class="flex w-64 flex-col justify-center items-center hover:opacity-30 m-3"
+  >
+    <img
+      :src="posterPath"
+      class="lg:w-40 w-24 rounded-lg object-cover shadow-xl shadow-gray-700"
+    />
+    <span class="lg:w-40 w-24 items-center text-white text-xl pt-1">{{
+      credit.original_name
+    }}</span>
   </div>
 </template>
 <script>
-export default {};
+import { IMG_PATH } from "@/services/baseURL";
+export default {
+  props: {
+    credit: {},
+  },
+  computed: {
+    posterPath() {
+      return IMG_PATH + this.credit.profile_path;
+    },
+  },
+};
 </script>
 <style></style>

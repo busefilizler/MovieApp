@@ -12,7 +12,7 @@
           class="flex justify-between items-center flex-row pl-10 absolute h-full"
         >
           <div
-            class="w-1/2 flex flex-col lg:justify-center lg:items-start items-center ml-24 text-white"
+            class="w-1/2 flex flex-col lg:justify-center lg:items-start items-center ml-36 text-white"
           >
             <h1 class="text-6xl font-extrabold pb-4">{{ movies[i].title }}</h1>
             <p class="md:text-lg sm:text-base">
@@ -26,18 +26,32 @@
             </button>
           </div>
           <div
-            @click="counter"
             class="lg:w-1/2 w-full hidden lg:flex items-center justify-center mx-24"
           >
             <img
               :src="posterPath"
-              class="w-2/4 rounded-xl shadow-2xl cursor-pointer"
+              class="w-2/4 rounded-xl shadow-2xl shadow-gray-500 cursor-pointer"
             />
           </div>
         </div>
       </transition>
+      <div
+        class="cursor-pointer text-9xl text-white text-opacity-50 absolute right-0 top-2/4 bottom-2/4 pr-10"
+        @click="counterPlus"
+      >
+        &gt;
+      </div>
+      <div
+        class="cursor-pointer text-9xl text-white text-opacity-50 absolute left-0 top-2/4 bottom-2/4 pl-10"
+        @click="counterMinus"
+      >
+        &lt;
+      </div>
     </div>
-    <div class="w-full bg-stone-800 flex flex-col justify-center items-center">
+    <div
+      v-if="!isLoading"
+      class="w-full bg-stone-800 flex flex-col justify-center items-center"
+    >
       <h1
         class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-10 pb-10 text-white"
       >
@@ -76,6 +90,14 @@
         </button>
       </div>
     </div>
+    <div>
+      <transition name="slide" appear>
+        <LoadingBar
+          class="w-full bg-stone-800 flex flex-col justify-center items-center"
+          v-if="isLoading"
+        />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -83,9 +105,13 @@
 import { IMG_PATH } from "../services/baseURL";
 import { movieService } from "@/services/movie-service";
 import MovieCard from "@/components/Cards/MovieCard.vue";
+import { mapGetters } from "vuex";
+import LoadingBar from "../components/Navbar/LoadingBar.vue";
+
 export default {
   components: {
     MovieCard,
+    LoadingBar,
   },
   data() {
     return {
@@ -94,14 +120,15 @@ export default {
       link: "",
       totalPages: null,
       currentPage: 1,
+      isLoading: false,
     };
   },
   async mounted() {
-    const data = await movieService.fetchPopularMovies(1);
+    const data = await movieService.fetchPopularMovies(this.i + 1);
     this.movies = data.results;
-    console.log(this.movies);
   },
   computed: {
+    ...mapGetters("movie", ["isLoading"]),
     posterPath() {
       return IMG_PATH + this.movies[this.i]?.poster_path;
     },
@@ -110,8 +137,15 @@ export default {
     },
   },
   methods: {
-    counter() {
+    counterPlus() {
       this.i = (this.i + 1) % 20;
+    },
+    counterMinus() {
+      if (this.i > 0) {
+        this.i = (this.i - 1) % 20;
+      } else {
+        this.i = 20;
+      }
     },
     async watchTrailer() {
       const { results } = await movieService.fetchMovieTrailerInfo(
@@ -124,10 +158,12 @@ export default {
   },
   watch: {
     async currentPage(newcurrentPage) {
+      this.isLoading = true;
+      console.log(this.isLoading);
       const data = await movieService.fetchPopularMovies(`${newcurrentPage}`);
-      console.log(data);
       this.movies = data.results;
       this.totalPages = data.page;
+      this.isLoading = false;
     },
   },
 };

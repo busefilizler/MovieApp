@@ -25,11 +25,6 @@
                 <a class="hover:text-red-500 cursor-pointer" href="#">Search</a>
               </li>
             </router-link>
-            <router-link tag="li" to="/moviedetail10">
-              <li>
-                <a class="hover:text-red-500 cursor-pointer" href="#">Test</a>
-              </li>
-            </router-link>
           </ul>
           <!-- Nav Links END -->
           <!-- Header Icons START -->
