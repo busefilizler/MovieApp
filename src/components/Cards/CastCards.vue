@@ -4,7 +4,7 @@
   >
     <img
       :src="posterPath"
-      class="lg:w-40 w-24 rounded-lg object-cover shadow-xl shadow-gray-700"
+      class="lg:w-40 w-24 rounded-lg object-cover shadow-2xl shadow-gray-900"
     />
     <span class="lg:w-40 w-24 items-center text-white text-xl pt-1">{{
       credit.original_name

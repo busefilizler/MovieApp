@@ -5,7 +5,7 @@
     <div class="BACKGROUND w-full relative h-full">
       <img
         :src="backdropPath"
-        class="w-full absolute object-cover h-full opacity-30 mask"
+        class="w-full absolute object-cover h-full opacity-60 mask"
       />
       <transition name="slide" appear>
         <div
@@ -14,12 +14,14 @@
           <div
             class="w-1/2 flex flex-col lg:justify-center lg:items-start items-center ml-36 text-white"
           >
-            <h1 class="text-6xl font-extrabold pb-4">{{ movies[i].title }}</h1>
+            <h1 class="sm:text-6xl text-3xl font-extrabold pb-4">
+              {{ movies[i].title }}
+            </h1>
             <p class="md:text-lg sm:text-base">
               {{ movies[i].overview }}
             </p>
             <button
-              class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mt-11 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
+              class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-11 text-lg font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
               @click="watchTrailer"
             >
               Watch Trailer
@@ -30,19 +32,19 @@
           >
             <img
               :src="posterPath"
-              class="w-2/4 rounded-xl shadow-2xl shadow-gray-500 cursor-pointer"
+              class="w-2/4 rounded-xl shadow-2xl shadow-gray-500"
             />
           </div>
         </div>
       </transition>
       <div
-        class="cursor-pointer text-9xl text-white text-opacity-50 absolute right-0 top-2/4 bottom-2/4 pr-10"
+        class="cursor-pointer sm:text-9xl text-4xl text-white text-opacity-50 absolute right-0 top-2/4 bottom-2/4 pr-10"
         @click="counterPlus"
       >
         &gt;
       </div>
       <div
-        class="cursor-pointer text-9xl text-white text-opacity-50 absolute left-0 top-2/4 bottom-2/4 pl-10"
+        class="cursor-pointer sm:text-9xl text-4xl text-white text-opacity-50 absolute left-0 top-2/4 bottom-2/4 pl-10"
         @click="counterMinus"
       >
         &lt;
@@ -59,7 +61,7 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800"
         >
           <MovieCard
             v-for="movie in movies"

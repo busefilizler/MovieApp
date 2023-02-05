@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 .mask {
-    -webkit-mask-image: linear-gradient(to top, transparent 10%, #292524 100%);
-    mask-image: linear-gradient(to top, transparent 15%, #292524 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, #292524 100%);
+    mask-image: linear-gradient(to top, transparent 10%, #292524 100%);
   }
   .fade-enter {
     opacity: 0;

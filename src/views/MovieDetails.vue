@@ -7,7 +7,7 @@
       <div class="BACKGROUND w-full relative h-full">
         <img
           :src="backdropPath"
-          class="w-full absolute object-cover h-full opacity-30 mask"
+          class="w-full absolute object-cover h-full opacity-60 mask"
         />
         <div class="w-full h-full">
           <transition name="slide" appear>
@@ -30,9 +30,14 @@
                     >{{ genre }}</span
                   >
                 </div>
-                <p class="text-xl">
+                <p class="text-xl mb-15">
                   {{ movie.overview }}
                 </p>
+                <button
+                  class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-3 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white my-10"
+                >
+                  Add Collection
+                </button>
                 <h1 class="sm:text-xl md:text-3xl font-extrabold">Casts</h1>
                 <div class="w-full h-54 flex flex-row gap-10 overflow-y-auto">
                   <CastCards
@@ -41,16 +46,11 @@
                     :credit="credit"
                   />
                 </div>
-                <button
-                  class="bg-white text-black p-2 px-10 shadow-2xl rounded-full mt-3 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
-                >
-                  Add Collection
-                </button>
               </div>
               <div class="w-1/2 hidden lg:flex items-center justify-center">
                 <img
                   :src="posterPath"
-                  class="w-96 object-cover rounded-xl shadow-2xl shadow-gray-700"
+                  class="w-96 object-cover rounded-xl shadow-2xl shadow-gray-900"
                 />
               </div>
             </div>
@@ -63,8 +63,8 @@
         <div
           class="TRAILER w-full h-full flex flex-col justify-center items-center"
         >
-          <h1 class="sm:text-xl md:text-6xl font-extrabold pb-6 text-white">
-            Trailer
+          <h1 class="sm:text-xl md:text-6xl font-extrabold pb-10 text-white">
+            OFFICAL TRAILER
           </h1>
           <iframe
             class="w-3/4 h-3/4 shadow-2xl shadow-gray-700"
@@ -140,12 +140,12 @@ export default {
       this.isLoading = true;
       const data = await movieService.fetchMovieDetail(this.$route.params.id);
       this.movie = data;
-      console.log(this.movie);
       this.isLoading = false;
 
       const { results } = await movieService.fetchMovieTrailerInfo(
         this.$route.params.id
       );
+      console.log(results);
       const key = results[0].key;
       this.link = `https://www.youtube.com/embed/${key}`;
 
