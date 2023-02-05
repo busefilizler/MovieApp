@@ -6,7 +6,7 @@
       <img
         @click="routeDirect(movie)"
         :src="posterPath"
-        class="w-64 rounded-lg object-cover shadow-xl shadow-gray-700"
+        class="w-64 rounded-lg object-cover shadow-2xl shadow-gray-900"
       />
       <span class="w-64 text-center items-center text-white text-xl pt-1">
         {{ movie.title }}
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     posterPath() {
-      return IMG_PATH + this.movie.poster_path;
+      return IMG_PATH + this.movie?.poster_path;
     },
   },
   methods: {

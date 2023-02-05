@@ -13,8 +13,8 @@ const fetchMovieTrailerInfo = async (movieId) => {
   return await responseHandler(response);
 };
 
-const fetchTopRatedMovies = async () => {
-  const url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`;
+const fetchTopRatedMovies = async (page) => {
+  const url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&page=${page}`;
   const response = await fetch(url);
   return await responseHandler(response);
 };

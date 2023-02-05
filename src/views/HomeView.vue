@@ -159,7 +159,6 @@ export default {
   watch: {
     async currentPage(newcurrentPage) {
       this.isLoading = true;
-      console.log(this.isLoading);
       const data = await movieService.fetchPopularMovies(`${newcurrentPage}`);
       this.movies = data.results;
       this.totalPages = data.page;

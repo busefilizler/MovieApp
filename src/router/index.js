@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SearchResult from "../views/SearchResults.vue";
 import MovieDetail from "../views/MovieDetails.vue";
+import TopRate from "../views/TopRate.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/moviedetail:id",
     name: "moviedetail",
     component: MovieDetail,
+  },
+  {
+    path: "/topratedmovie",
+    name: "topratedmovie",
+    component: TopRate,
   },
 ];
 

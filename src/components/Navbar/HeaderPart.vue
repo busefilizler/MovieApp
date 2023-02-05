@@ -13,7 +13,7 @@
           </router-link>
           <!-- Nav Links START -->
           <ul
-            class="hidden sm:text-sm md:text-2xl sm:flex ml-20 px-4 mx-auto font-semibold font-heading gap-10"
+            class="sm:text-sm md:text-2xl sm:flex ml-20 px-4 mx-auto font-semibold font-heading gap-10"
           >
             <router-link tag="li" to="/" exact active-class="active">
               <li>
@@ -25,10 +25,22 @@
                 <a class="hover:text-red-500 cursor-pointer" href="#">Search</a>
               </li>
             </router-link>
+            <router-link
+              tag="li"
+              exact
+              to="/topratedmovie"
+              active-class="active"
+            >
+              <li>
+                <a class="hover:text-red-500 cursor-pointer" href="#"
+                  >Top Rated Movies</a
+                >
+              </li>
+            </router-link>
           </ul>
           <!-- Nav Links END -->
           <!-- Header Icons START -->
-          <div class="hidden sm:flex items-center space-x-5">
+          <div class="sm:flex items-center space-x-5">
             <a class="hover:text-red-500" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

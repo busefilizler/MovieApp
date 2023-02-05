@@ -22,15 +22,18 @@
             <input
               type="text"
               id="simple-search"
-              class="bg-stone-400 md:w-96 sm:w-52 text-black text-sm rounded-lg block pl-10 p-2.5 outline-0 shadow-2xl placeholder:text-stone-800"
+              class="bg-stone-400 md:w-96 sm:w-52 h-16 text-black text-base rounded-lg block pl-10 p-2.5 outline-0 shadow-2xl placeholder:text-stone-800"
               placeholder="Search"
               required
+              v-model="searchTerm"
+              @keypress.enter="getTerm"
             />
           </div>
         </form>
       </transition>
     </div>
     <div
+      v-if="showSearchResult"
       class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 bg-stone-800"
     >
       <MovieCard class="cursor-pointer" />
@@ -40,12 +43,26 @@
 
 <script>
 import MovieCard from "@/components/Cards/MovieCard.vue";
+import { movieService } from "@/services/movie-service";
 export default {
   components: {
     MovieCard,
   },
   data() {
-    return {};
+    return {
+      searchTerm: "",
+      showSearchResult: false,
+    };
+  },
+  methods: {
+    getTerm() {
+      this.getMovies(this.searchTerm);
+    },
+    async getMovies(term) {
+      const data = await movieService.fetchSearchedMovie(term);
+      this.showSearchResult = true;
+      console.log(data);
+    },
   },
 };
 </script>

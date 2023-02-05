@@ -140,6 +140,7 @@ export default {
       this.isLoading = true;
       const data = await movieService.fetchMovieDetail(this.$route.params.id);
       this.movie = data;
+      console.log(this.movie);
       this.isLoading = false;
 
       const { results } = await movieService.fetchMovieTrailerInfo(
@@ -152,7 +153,6 @@ export default {
         this.$route.params.id
       );
       this.similar = similar.results;
-      console.log(this.similar);
 
       const credits = await movieService.fetchMovieCredits(
         this.$route.params.id
