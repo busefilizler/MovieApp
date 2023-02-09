@@ -73,7 +73,6 @@ export default {
     async getTopRateMovie() {
       const { results } = await movieService.fetchTopRatedMovies("1");
       this.topRates = results;
-      console.log(this.topRates);
     },
   },
   async mounted() {

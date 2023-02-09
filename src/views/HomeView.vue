@@ -9,19 +9,21 @@
       />
       <transition name="slide" appear>
         <div
-          class="flex justify-between items-center flex-row pl-10 absolute h-full"
+          class="flex justify-between items-center flex-row px-10 absolute h-full"
         >
           <div
-            class="w-1/2 flex flex-col lg:justify-center lg:items-start items-center ml-36 text-white"
+            class="lg:w-1/2 md:w-full flex flex-col lg:justify-center lg:items-start items-center lg:ml-36 md:ml-0 text-white"
           >
-            <h1 class="sm:text-6xl text-3xl font-extrabold pb-4">
+            <h1
+              class="xl:text-6xl lg:text-4xl md:text-3xl sm:text-2xl sm:text-center lg:text-left md:text-left xl:text-left font-extrabold pb-4"
+            >
               {{ movies[i].title }}
             </h1>
             <p class="md:text-lg sm:text-base">
               {{ movies[i].overview }}
             </p>
             <button
-              class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-11 text-lg font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
+              class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-11 sm:text-base lg:text-xl font-semibold !cursor-pointer hover:bg-red-600 hover:text-white"
               @click="watchTrailer"
             >
               Watch Trailer
@@ -38,13 +40,13 @@
         </div>
       </transition>
       <div
-        class="cursor-pointer sm:text-9xl text-4xl text-white text-opacity-50 absolute right-0 top-2/4 bottom-2/4 pr-10"
+        class="cursor-pointer lg:text-9xl sm:text-xl text-white text-opacity-50 absolute right-0 top-2/4 bottom-2/4 pr-10"
         @click="counterPlus"
       >
         &gt;
       </div>
       <div
-        class="cursor-pointer sm:text-9xl text-4xl text-white text-opacity-50 absolute left-0 top-2/4 bottom-2/4 pl-10"
+        class="cursor-pointer lg:text-9xl sm:text-xl text-white text-opacity-50 absolute left-0 top-2/4 bottom-2/4 pl-10"
         @click="counterMinus"
       >
         &lt;

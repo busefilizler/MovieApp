@@ -9,7 +9,7 @@
           :src="backdropPath"
           class="w-full absolute object-cover h-full opacity-60 mask"
         />
-        <div class="w-full h-full">
+        <div class="w-full h-full mt-20">
           <transition name="slide" appear>
             <div
               class="DETATILS w-full p-20 flex justify-center flex-row-reverse absolute h-full pt-10"
@@ -24,13 +24,13 @@
                   class="w-full flex justify-center lg:justify-start items-center gap-5 pb-6 pt-4"
                 >
                   <span
-                    class="border-2 border-white px-2 py-1 rounded-full md:text-sm sm:text-xs"
+                    class="border-2 border-white px-2 py-1 rounded-full sm:text-xs text-xs"
                     :key="genre"
                     v-for="genre in getGenreNames()"
                     >{{ genre }}</span
                   >
                 </div>
-                <p class="text-xl mb-15">
+                <p class="md:text-base text-sm mb-6">
                   {{ movie.overview }}
                 </p>
                 <button
@@ -50,7 +50,7 @@
               <div class="w-1/2 hidden lg:flex items-center justify-center">
                 <img
                   :src="posterPath"
-                  class="w-96 object-cover rounded-xl shadow-2xl shadow-gray-900"
+                  class="w-96 object-cover rounded-xl mr-10 shadow-2xl shadow-gray-900"
                 />
               </div>
             </div>
@@ -67,7 +67,7 @@
             OFFICAL TRAILER
           </h1>
           <iframe
-            class="w-3/4 h-3/4 shadow-2xl shadow-gray-700"
+            class="w-3/4 h-3/4 shadow-2xl shadow-gray-900"
             :src="trailerLink"
             title="YouTube video player"
             frameborder="0"
@@ -145,7 +145,6 @@ export default {
       const { results } = await movieService.fetchMovieTrailerInfo(
         this.$route.params.id
       );
-      console.log(results);
       const key = results[0].key;
       this.link = `https://www.youtube.com/embed/${key}`;
 

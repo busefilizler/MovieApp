@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex w-64 flex-col justify-center items-center hover:opacity-30 m-3"
+    class="flex w-24 flex-col justify-start items-center hover:opacity-60 m-3"
   >
     <img
       :src="posterPath"
-      class="lg:w-40 w-24 rounded-lg object-cover shadow-2xl shadow-gray-900"
+      class="w-24 cursor-pointer rounded-lg object-cover shadow-2xl shadow-gray-900"
     />
-    <span class="lg:w-40 w-24 items-center text-white text-xl pt-1">{{
+    <span class="w-24 items-center text-white text-sm pt-1">{{
       credit.original_name
     }}</span>
   </div>

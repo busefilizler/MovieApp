@@ -26,7 +26,7 @@
               placeholder="Search"
               required
               v-model="searchTerm"
-              @keypress.enter="getTerm"
+              @input="debounceSearch"
             />
           </div>
         </form>
@@ -34,9 +34,14 @@
     </div>
     <div
       v-if="showSearchResult"
-      class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 bg-stone-800"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800 my-10"
     >
-      <MovieCard class="cursor-pointer" />
+      <MovieCard
+        v-for="movie in searchMovies"
+        :key="movie.id"
+        :movie="movie"
+        class="cursor-pointer flex flex-col justify-start items-center"
+      />
     </div>
   </div>
 </template>
@@ -52,16 +57,24 @@ export default {
     return {
       searchTerm: "",
       showSearchResult: false,
+      searchMovies: [],
     };
   },
   methods: {
-    getTerm() {
-      this.getMovies(this.searchTerm);
+    debounceSearch(event) {
+      clearTimeout(this.debounce);
+      this.debounce = setTimeout(() => {
+        this.getMovies(event.target.value);
+      }, 500);
     },
     async getMovies(term) {
       const data = await movieService.fetchSearchedMovie(term);
+      this.searchMovies = data;
       this.showSearchResult = true;
-      console.log(data);
+      console.log(this.searchMovies);
+    },
+    mounted() {
+      this.getMovies();
     },
   },
 };
