@@ -12,12 +12,14 @@
         <div class="w-full h-full mt-20">
           <transition name="slide" appear>
             <div
-              class="DETATILS w-full p-20 flex justify-center flex-row-reverse absolute h-full pt-10"
+              class="DETATILS w-full 2xl:p-20 xl:p-20 lg:p-20 md:p-20 p-12 flex justify-center flex-row-reverse absolute h-full pt-10"
             >
               <div
                 class="lg:w-1/2 w-full h-full flex flex-col lg:items-start items-center justify-center lg:mr-24 lg:ml-1 ml-10 mr-10 text-white"
               >
-                <h1 class="text-6xl text-center lg:text-left font-extrabold">
+                <h1
+                  class="xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-3xl text-center lg:text-left font-extrabold"
+                >
                   {{ movie.title }}
                 </h1>
                 <div
