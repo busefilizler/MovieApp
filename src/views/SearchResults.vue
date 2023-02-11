@@ -2,7 +2,7 @@
   <div class="bg-stone-800 h-full w-full flex flex-col gap-5">
     <div class="pt-44 pb-10 w-full flex justify-center">
       <transition name="slide" appear>
-        <form class="flex justify-center items-center">
+        <form @submit.prevent="" class="flex justify-center items-center">
           <div class="relative w-full">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
