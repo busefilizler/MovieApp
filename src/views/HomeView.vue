@@ -63,7 +63,7 @@
       </h1>
       <transition name="fade" appear>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800 mx-24"
         >
           <MovieCard
             v-for="movie in movies"
@@ -142,14 +142,18 @@ export default {
   },
   methods: {
     counterPlus() {
+      this.isLoading = true;
       this.i = (this.i + 1) % 20;
+      this.isLoading = false;
     },
     counterMinus() {
+      this.isLoading = true;
       if (this.i > 0) {
         this.i = (this.i - 1) % 20;
       } else {
         this.i = 20;
       }
+      this.isLoading = false;
     },
     async watchTrailer() {
       const { results } = await movieService.fetchMovieTrailerInfo(
