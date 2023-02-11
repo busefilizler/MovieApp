@@ -34,7 +34,7 @@
     </div>
     <div
       v-if="showSearchResult"
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-10 gap-12 bg-stone-800 mx-24"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-5 gap-12 bg-stone-800 mx-24"
     >
       <MovieCard
         v-for="movie in searchMovies"
