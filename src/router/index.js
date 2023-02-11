@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import SearchResult from "../views/SearchResults.vue";
 import MovieDetail from "../views/MovieDetails.vue";
 import TopRate from "../views/TopRate.vue";
+import CastDetail from "../views/CastDetails.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/moviedetail:id",
     name: "moviedetail",
     component: MovieDetail,
+  },
+  {
+    path: "/castdetail:id",
+    name: "castdetail",
+    component: CastDetail,
   },
   {
     path: "/topratedmovie",

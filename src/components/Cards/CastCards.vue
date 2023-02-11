@@ -3,6 +3,7 @@
     class="flex w-24 flex-col justify-start items-center hover:opacity-60 m-3"
   >
     <img
+      @click="routeDirect(credit)"
       :src="posterPath"
       class="w-24 cursor-pointer rounded-lg object-cover shadow-2xl shadow-gray-900"
     />
@@ -12,6 +13,7 @@
   </div>
 </template>
 <script>
+import router from "@/router";
 import { IMG_PATH } from "@/services/baseURL";
 export default {
   props: {
@@ -20,6 +22,11 @@ export default {
   computed: {
     posterPath() {
       return IMG_PATH + this.credit.profile_path;
+    },
+  },
+  methods: {
+    routeDirect(credit) {
+      router.push(`/castdetail${credit.id}`);
     },
   },
 };

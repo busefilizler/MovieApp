@@ -83,7 +83,7 @@
         v-if="similar.length > 0"
       >
         <h1 class="sm:text-xl md:text-3xl font-extrabold pb-2 text-white">
-          Similar Movie
+          Similar Movies
         </h1>
         <div class="flex w-full m-4 overflow-y-scroll">
           <MovieCard
@@ -119,7 +119,6 @@ export default {
       link: "",
       similar: "",
       credits: "",
-      routerId: null,
       isLoading: false,
     };
   },
@@ -159,6 +158,7 @@ export default {
         this.$route.params.id
       );
       this.credits = credits.cast;
+      console.log(this.credits);
     },
   },
   async mounted() {

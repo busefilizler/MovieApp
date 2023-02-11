@@ -24,6 +24,16 @@ const fetchMovieDetail = async (movieId) => {
   const response = await fetch(url);
   return await responseHandler(response);
 };
+const fetchCastDetail = async (personId) => {
+  const url = `${BASE_URL}/person/${personId}?api_key=${API_KEY}`;
+  const response = await fetch(url);
+  return await responseHandler(response);
+};
+const fetchCastCredits = async (personId) => {
+  const url = `${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`;
+  const response = await fetch(url);
+  return await responseHandler(response);
+};
 
 const fetchMovieCredits = async (movieId) => {
   const url = `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`;
@@ -52,4 +62,6 @@ export const movieService = {
   fetchMovieCredits,
   fetchSmilarMovies,
   fetchSearchedMovie,
+  fetchCastDetail,
+  fetchCastCredits,
 };
