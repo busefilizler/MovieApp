@@ -36,11 +36,25 @@
                   {{ movie.overview }}
                 </p>
                 <button
+                  v-if="added"
+                  @click="addStorage(movie)"
                   class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-3 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white my-10"
                 >
                   Add Collection
                 </button>
-                <h1 class="sm:text-xl md:text-3xl font-extrabold">Casts</h1>
+                <button
+                  v-if="!added"
+                  @click="removeStorage(movie)"
+                  class="bg-white text-red-600 p-2 px-10 shadow-2xl rounded-full mt-3 text-base font-semibold !cursor-pointer hover:bg-red-600 hover:text-white my-10"
+                >
+                  Remove Collection
+                </button>
+                <h1
+                  v-if="credits"
+                  class="sm:text-xl md:text-3xl font-extrabold"
+                >
+                  Casts
+                </h1>
                 <div class="w-full h-54 flex flex-row gap-10 overflow-y-auto">
                   <CastCards
                     v-for="credit in credits"
@@ -63,6 +77,7 @@
         class="w-full h-full bg-stone-800 flex flex-col justify-start items-start"
       >
         <div
+          v-if="link"
           class="TRAILER w-full h-full flex flex-col justify-center items-center"
         >
           <h1 class="sm:text-xl md:text-6xl font-extrabold pb-10 text-white">
@@ -120,7 +135,11 @@ export default {
       similar: "",
       credits: "",
       isLoading: false,
+      added: "true",
     };
+  },
+  props: {
+    setDataFromChild: Function,
   },
   computed: {
     posterPath() {
@@ -148,6 +167,7 @@ export default {
       );
       const key = results[0].key;
       this.link = `https://www.youtube.com/embed/${key}`;
+      console.log(results);
 
       const similar = await movieService.fetchSmilarMovies(
         this.$route.params.id
@@ -158,7 +178,29 @@ export default {
         this.$route.params.id
       );
       this.credits = credits.cast;
-      console.log(this.credits);
+    },
+    addStorage(movie) {
+      let storeData = window.localStorage.getItem("movies")
+        ? window.localStorage.getItem("movies").split(",")
+        : [];
+      if (!storeData.includes(movie.id.toString())) {
+        storeData.push(movie.id.toString());
+        window.localStorage.setItem("movies", storeData.join(","));
+      }
+      this.added = false;
+    },
+    removeStorage(movie) {
+      let storeData = window.localStorage.getItem("movies")
+        ? window.localStorage.getItem("movies").split(",")
+        : [];
+      let indexMovie = storeData.indexOf(movie.id.toString());
+      if (indexMovie !== -1) {
+        storeData.splice(indexMovie, 1);
+        window.localStorage.setItem("movies", storeData.join(","));
+        this.added = true;
+      } else {
+        this.added = false;
+      }
     },
   },
   async mounted() {

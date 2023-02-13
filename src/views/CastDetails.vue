@@ -30,7 +30,7 @@
       <h1
         class="sm:text-xl md:text-3xl font-extrabold pb-2 text-white w-full text-center"
       >
-        Other Movie
+        Known For
       </h1>
       <div class="flex w-full m-4 overflow-y-scroll gap-2">
         <MovieCard
@@ -58,7 +58,11 @@ export default {
   },
   computed: {
     posterPath() {
-      return IMG_PATH + this.person.profile_path;
+      const posterPath = this.person.profile_path;
+      if (!posterPath) {
+        return "https://via.placeholder.com/185x278";
+      }
+      return IMG_PATH + posterPath;
     },
   },
   methods: {

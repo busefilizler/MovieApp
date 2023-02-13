@@ -42,6 +42,18 @@
                 >
               </li>
             </router-link>
+            <router-link
+              tag="li"
+              exact
+              to="/favoritelist"
+              active-class="active"
+            >
+              <li>
+                <a class="hover:text-red-500 cursor-pointer" href="#"
+                  >Your Collection</a
+                >
+              </li>
+            </router-link>
           </ul>
           <!-- Nav Links END -->
           <!-- Small Nav Links START -->

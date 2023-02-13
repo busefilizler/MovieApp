@@ -5,6 +5,7 @@ import SearchResult from "../views/SearchResults.vue";
 import MovieDetail from "../views/MovieDetails.vue";
 import TopRate from "../views/TopRate.vue";
 import CastDetail from "../views/CastDetails.vue";
+import FavoriteList from "../views/FavoriteList.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/topratedmovie",
     name: "topratedmovie",
     component: TopRate,
+  },
+  {
+    path: "/favoritelist",
+    name: "FavoriteList",
+    component: FavoriteList,
   },
 ];
 

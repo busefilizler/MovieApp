@@ -134,7 +134,11 @@ export default {
   computed: {
     ...mapGetters("movie", ["isLoading"]),
     posterPath() {
-      return IMG_PATH + this.movies[this.i]?.poster_path;
+      const posterPath = this.movies[this.i]?.poster_path;
+      if (!posterPath) {
+        return "https://via.placeholder.com/185x278";
+      }
+      return IMG_PATH + posterPath;
     },
     backdropPath() {
       return IMG_PATH + this.movies[this.i]?.backdrop_path;

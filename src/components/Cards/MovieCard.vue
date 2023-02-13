@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex w-60 flex-col justify-center items-center hover:opacity-30 m-3"
+      class="flex p-2 w-60 flex-col justify-center items-center hover:opacity-30"
     >
       <img
         @click="routeDirect(movie)"
@@ -23,7 +23,11 @@ export default {
   },
   computed: {
     posterPath() {
-      return IMG_PATH + this.movie?.poster_path;
+      const posterPath = this.movie?.poster_path;
+      if (!posterPath) {
+        return "https://via.placeholder.com/185x278";
+      }
+      return IMG_PATH + posterPath;
     },
   },
   methods: {
