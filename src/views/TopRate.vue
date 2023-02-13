@@ -5,7 +5,7 @@
       class="w-full bg-stone-800 flex flex-col justify-center items-center"
     >
       <h1
-        class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-20 pb-10 text-white"
+        class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-32 pb-10 text-white"
       >
         Top Rated Movies
       </h1>
