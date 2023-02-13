@@ -1,5 +1,10 @@
 <template>
   <div class="flex flex-col w-full h-full bg-stone-800 px-14 pt-24">
+    <h1
+      class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-20 pb-10 text-white text-center"
+    >
+      Your Collection
+    </h1>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-12 bg-stone-800 mx-24"
     >
