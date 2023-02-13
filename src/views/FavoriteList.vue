@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full h-full bg-stone-800 px-14 pt-24">
     <h1
-      class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-20 pb-10 text-white text-center"
+      class="sm:text-xl md:text-6xl lg:text:xl font-extrabold pt-10 pb-10 text-white text-center"
     >
       Your Collection
     </h1>
