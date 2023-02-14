@@ -2,7 +2,7 @@
   <div
     class="flex bg-stone-800 flex-wrap place-items-start absolute h-full w-full"
   >
-    <div class="BACKGROUND w-full relative h-full">
+    <div v-if="movies.length > 0" class="BACKGROUND w-full relative h-full">
       <img
         :src="backdropPath"
         class="w-full absolute object-cover h-full opacity-60 mask"
